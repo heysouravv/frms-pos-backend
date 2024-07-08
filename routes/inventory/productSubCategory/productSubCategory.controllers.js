@@ -83,7 +83,7 @@ const getAllProductSubCategory = async (req, res) => {
       // attach thumbnail_image_url to product_sub_category
       getAllProductSubCategory.forEach(async (productSubCategory) => {
         productSubCategory.product.forEach(async (product) => {
-          product.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${product.thumbnail_image}`;
+          product.thumbnail_image_url = `${process.env.THUMBNAIL_IMAGE_URL}/v1/product-image/${product.thumbnail_image}`;
         });
       });
       res.json(getAllProductSubCategory);
@@ -109,7 +109,7 @@ const getAllProductSubCategory = async (req, res) => {
       // attach thumbnail_image_url to product_sub_category
       getAllProductSubCategory.forEach(async (productSubCategory) => {
         productSubCategory.product.forEach(async (product) => {
-          product.thumbnail_image_url = `${HOST}:${PORT}/v1/product-image/${product.thumbnail_image}`;
+          product.thumbnail_image_url = `${process.env.THUMBNAIL_IMAGE_URL}/v1/product-image/${product.thumbnail_image}`;
         });
       });
       res.json(getAllProductSubCategory);
