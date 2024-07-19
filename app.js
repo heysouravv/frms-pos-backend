@@ -28,6 +28,8 @@ const designationRoutes = require("./routes/hr/designation/designation.routes");
 const productCategoryRoutes = require("./routes/inventory/productCategory/productCategory.routes");
 const accountRoutes = require("./routes/accounting/account/account.routes");
 const settingRoutes = require("./routes/setting/setting.routes");
+const gstRoutes = require("./routes/sale/gst/gst.routes");
+const discountRoutes = require("./routes/sale/discount/discount.routes");
 
 /* variables */
 // express app instance
@@ -103,5 +105,7 @@ app.use("/v1/account", accountRoutes);
 app.use("/v1/setting", settingRoutes);
 app.use("/v1/product-sub-category", productSubCategoryRoutes);
 app.use("/v1/product-brand", productBrandRoutes);
+app.use("/v1/gst", gstRoutes);
+app.use("/v1/discount", discountRoutes);
 
 module.exports = app;

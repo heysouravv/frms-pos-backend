@@ -294,3 +294,21 @@ model appSetting {
   website      String
   footer       String
 }
+
+model gst {
+  id           Int               @id @default(autoincrement())
+  name         String
+  percentage   Int
+  status       Boolean           @default(true)
+  created_at   DateTime          @default(now())
+  updated_at   DateTime          @updatedAt
+}
+
+model discount {
+  id           Int               @id @default(autoincrement())
+  name         String
+  percentage   Int
+  status       Boolean           @default(true)
+  created_at   DateTime          @default(now())
+  updated_at   DateTime          @updatedAt
+}

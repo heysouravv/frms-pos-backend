@@ -308,6 +308,29 @@ CREATE TABLE "appSetting" (
     CONSTRAINT "appSetting_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "gst" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "percentage" INTEGER NOT NULL,
+    "status" BOOLEAN NOT NULL DEFAULT true,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "gst_pkey" PRIMARY KEY ("id")
+);
+
+CREATE TABLE "discount" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "percentage" INTEGER NOT NULL,
+    "status" BOOLEAN NOT NULL DEFAULT true,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "discount_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_username_key" ON "user"("username");
 
