@@ -36,14 +36,7 @@ const discountRoutes = require("./routes/sale/discount/discount.routes");
 const app = express();
 
 // holds all the allowed origins for cors access
-let allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:5000",
-  "https://pososf.onrender.com",
-"https://pososf.netlify.app",
-  "http://localhost:3001"
-
-];
+let allowedOrigins = ["*"];
 
 
 
