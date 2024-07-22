@@ -36,7 +36,14 @@ const discountRoutes = require("./routes/sale/discount/discount.routes");
 const app = express();
 
 // holds all the allowed origins for cors access
-let allowedOrigins = ["*"];
+// let allowedOrigins = [
+//   "http://localhost:3000",
+//   "http://localhost:5000",
+//   "https://pososf.onrender.com",
+// "https://pososf.netlify.app",
+//   "http://localhost:3001"
+
+// ];
 
 
 
@@ -57,19 +64,21 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("dev"));
 // allows cors access from allowedOrigins array
 app.use(
-  cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        let msg =
-          "The CORS policy for this site does not " +
-          "allow access from the specified Origin.";
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
-  })
+  cors(
+  //   {
+  //   origin: function (origin, callback) {
+  //     // allow requests with no origin (like mobile apps or curl requests)
+  //     if (!origin) return callback(null, true);
+  //     if (allowedOrigins.indexOf(origin) === -1) {
+  //       let msg =
+  //         "The CORS policy for this site does not " +
+  //         "allow access from the specified Origin.";
+  //       return callback(new Error(msg), false);
+  //     }
+  //     return callback(null, true);
+  //   },
+  // }
+)
 );
 
 // parse requests of content-type - application/json
