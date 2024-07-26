@@ -156,6 +156,7 @@ model saleInvoice {
   returnSaleInvoice  returnSaleInvoice[]
   created_at         DateTime             @default(now())
   updated_at         DateTime             @updatedAt
+  tax_amount         Float                @default(0.0)
 }
 
 model saleInvoiceProduct {

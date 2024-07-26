@@ -551,8 +551,33 @@ const getSingleSaleInvoice = async (req, res) => {
   }
 };
 
+const getTotalTax = async (req, res) => {
+  try {
+    let { startDate, endDate } = req.query;
+    endDate = new Date(new Date(endDate).setDate(new Date(endDate).getDate() + 1 ));
+    const saleInvoices = await prisma.saleInvoice.findMany({
+      where: {
+        created_at: {
+          gte: new Date(startDate),
+          lt: new Date(endDate),
+        },
+      },
+      select: {
+        tax_amount: true,
+      },
+    });
+  
+    const totalTaxAmount = saleInvoices.reduce((sum, invoice) => sum + invoice.tax_amount, 0);
+    res.json({totalTaxAmount});
+  } catch (error) {
+    res.status(400).json(error.message);
+    console.log(error.message);
+  }
+}
+
 module.exports = {
   createSingleSaleInvoice,
   getAllSaleInvoice,
   getSingleSaleInvoice,
+  getTotalTax
 };

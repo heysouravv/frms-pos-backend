@@ -3,6 +3,7 @@ const {
   createSingleSaleInvoice,
   getAllSaleInvoice,
   getSingleSaleInvoice,
+  getTotalTax
 } = require("./saleInvoice.controllers");
 const authorize = require("../../../utils/authorize"); // authentication middleware
 
@@ -19,5 +20,11 @@ saleInvoiceRoutes.get(
   authorize("read-saleInvoice"),
   getSingleSaleInvoice
 );
+
+saleInvoiceRoutes.get(
+  "/total/tax",
+  // authorize("read-saleInvoice-totaltax"),
+  getTotalTax
+)
 
 module.exports = saleInvoiceRoutes;
