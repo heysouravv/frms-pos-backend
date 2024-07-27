@@ -6,7 +6,7 @@ const createDiscount = async (req, res) => {
     const createddiscount = await prisma.discount.create({
       data: {
         name: req.body.name,
-        percentage: req.body.percentage
+        percentage: parseInt(req.body.percentage)
       },
     });
     res.json({ data: createddiscount });
@@ -24,7 +24,7 @@ const updateDiscount = async (req, res) => {
       },
       data: {
         name: req.body.name,
-        percentage: req.body.percentage,
+        percentage: parseInt(req.body.percentage),
         status: req.body.status,
         updated_at: new Date()
       },

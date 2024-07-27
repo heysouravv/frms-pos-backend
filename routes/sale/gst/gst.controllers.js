@@ -6,7 +6,7 @@ const createGst = async (req, res) => {
     const createdGst = await prisma.gst.create({
       data: {
         name: req.body.name,
-        percentage: req.body.percentage
+        percentage: parseInt(req.body.percentage)
       },
     });
     res.json({ data: createdGst });
@@ -24,7 +24,7 @@ const updateGst = async (req, res) => {
       },
       data: {
         name: req.body.name,
-        percentage: req.body.percentage,
+        percentage: parseInt(req.body.percentage),
         status: req.body.status,
         updated_at: new Date()
       },
