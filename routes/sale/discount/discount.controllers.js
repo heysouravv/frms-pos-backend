@@ -69,7 +69,7 @@ const getLatestDiscount = async (req, res) => {
       take: 1
     });
     if(getDiscount?.[0]){
-      res.json(getDiscount[0]);
+      return res.json(getDiscount[0]);
     }
     res.json({percentage: 0});
   } catch (error) {
