@@ -69,7 +69,7 @@ const getLatestGst = async (req, res) => {
       take: 1
     });
     if(getGst?.[0]){
-      res.json(getGst[0]);
+      return res.json(getGst[0]);
     }
     res.json({percentage: 0});
   } catch (error) {
